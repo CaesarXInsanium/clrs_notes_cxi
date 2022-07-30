@@ -1,6 +1,8 @@
 # Chapter 2: Getting Started
 
-This chapter is about the framework that will be sued further down the road in the pursuit of getting the student familiar with inner workings of the way the book is structured
+This chapter is about the framework that will be pursued further down the road in
+the pursuit of getting the student familiar with inner workings of the way the book is
+structured.
 
 `Pseudo Code`: method of describing a set of instructions or algorithms that is implementation agnostic. Can be interpreted and implemented in a variety of different manners. Algorithm described in the clearest manner
 
@@ -22,6 +24,7 @@ Things that are proven with insertion algorithm
 - when j reaches the value of length of A, the algorithm stops and by the array should be sorted.
 
 Rust Implementation
+
 ```rust
 pub fn insertion_sort<T: PartialOrd + Clone>(arr: &mut [T]){
     let len = arr.len();
@@ -108,7 +111,7 @@ Example With Insertion Sort
 Nothing else matters. We can have to estimate the true time complexity then we have everything else. If worst case of algorithm A is better than the worst case for B, then it is considered that
 A is better than B
 
-### Exercises
+### Exercises: Analyzing Algorithms
 
 
 #### 1
@@ -209,60 +212,68 @@ To merge two sorted arrays
 - push into output array
 - repeat until both stack are empty
 
-```python
-def merge_sort(A):
-    if len(A) > 1:
+Look at it and weep, at my merge sort implementation
 
-        mid = len(A)//2
-        L = A[:mid]
-        R = A[mid:]
-        merge_sort(L)
-        merge_sort(R)
-        i = j = k = 0
-        while i < len(L) and j < len(R):
-            if L[i] < R[j]:
-                A[k] = L[i]
-                i += 1
-            else:
-                A[k] = R[j]
-                j += 1
-            k += 1
-        while i < len(L):
-            A[k] = L[i]
-            i += 1
-            k += 1
-  
-        while j < len(R):
-            A[k] = R[j]
-            j += 1
-            k += 1
+```python
+def merge(A, p, q, r):
+    n1 = q - p + 1
+    n2 = r - q
+    L = list()
+    R = list()
+    for i in range(1, n1):
+        L[i] = A[p + i - 1]
+    for j in range(1, n20):
+        R[j] = A[q + j]
+
+    L[n1 + 1] = sys.maxsize
+    R[n2 + 1] = sys.maxsize
+
+    i = 1
+    j = 1
+    for k in range(p, r):
+        if L[i] <= R[j]:
+            A[k] = L[j]
+            i = i + 1
+        elif A[k] == R[j]:
+            j = j + 1
+    return A
+
+
+def merge_sort(A, p, r):
+
+    if p < r:
+        q = math.floor((p+r)/2)
+        a1 = merge_sort(A, p, q)
+        a2 = merge_sort(A, q+1, r)
+        merge(a1+a2, p, q, r)
+    return A
 ```
 
 - Initialization
-  - take in array, and compute the appropiate indexes of the things that are to be worked with.
-- Maintenace
-  - as each sub array is merged, one array has number of elements lesst than or equal to the other sub-array
+  - take in array, and compute the appropriate indexes of the things that are to be worked with.
+- Maintenance
+  - as each sub array is merged, one array has the number of elements less than or equal to the other sub-array
   - the difference between the number of elements in each array never exceeds one
 - Termination
-  - runs until it reaches the end of the array and or if it reaches the sentinal value
+  - runs until it reaches the end of the array and or if it reaches the sentinel value
 
 ### Analyzing divide-and-conquer Algorithms
 
-- when algorthms calls themselves they are described as `recurrance equation`.
-- if a problem is small enough, generally this allows it to be solved in virtually contant time. However with the size of the problem the time complexity grows a lot faster.
+- When algorithms calls themselves they are described as `recurrance equation`.
+- If a problem is small enough, generally this allows it to be solved in virtually constant time. However, with the size of the problem the time complexity grows a lot faster.
 
 #### Merge Sort Analysis
 
-- each time the algorithm calls itself it divides the time complexity by a half. However this is done twice each time. So the time complexity if merge sort is O(n), linear complexity
-- at a certain point the time complexity of merge sort becomes bettwer than insertion sort.
-- time complexity is nlogn
+- Each time the algorithm calls itself it divides the time complexity by a half. However, this is done twice each time. So the time complexity if merge sort is O(n), linear complexity
+- at a certain point the time complexity of merge sort becomes better than insertion sort.
+- Time complexity is nlogn
 
 
-#### Exercises
+#### Exercises: Designing Algorithms
 
 illustration of merge sort
 
-rewrite to not use sentinal values
+rewrite to not use sentinel values
 
 use induction in order to time complexity if nlogn
 
