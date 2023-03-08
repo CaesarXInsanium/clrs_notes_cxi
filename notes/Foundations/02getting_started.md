@@ -1,27 +1,34 @@
 # Chapter 2: Getting Started
 
 This chapter is about the framework that will be pursued further down the road in
-the pursuit of getting the student familiar with inner workings of the way the book is
-structured.
+the pursuit of getting the student familiar with inner workings of the way the book
+is structured.
 
-`Pseudo Code`: method of describing a set of instructions or algorithms that is implementation agnostic. Can be interpreted and implemented in a variety of different manners. Algorithm described in the clearest manner
+`Pseudo Code`: method of describing a set of instructions or algorithms that is
+implementation agnostic. Can be interpreted and implemented in a variety of different
+manners. Algorithm described in the clearest way.
 
 ## Insertion Sort
 
-- Solution to sorting Problem is insertion sort in which given a set of numbers we try to order them from smallest to greatest
+- Solution to sorting Problem is insertion sort in which given a set of numbers
+  we try to order them from smallest to greatest
 - To prove that algorithm is correct, we must show that
 
 `Loop invariant`: section of the array that are already sorted.
 
 - `Initialization`: certain properties of array are true before algorithm starts
-- `Maintenace`: if certain things are true before iteration of loop, will remain true for next iteration
+- `Maintenace`: if certain things are true before iteration of loop, will remain
+  true for next iteration
 - `Termination`: certain properties arise from evaluation of loop
 
 Things that are proven with insertion algorithm
 
-- At start sub array A[0..j] where j = 1, is an array with a single element, as such it is trivially sorted
-- at each iteration, the right most element being sorted is swapped with the previous element, if it does not reach the correct position it is swap again
-- when j reaches the value of length of A, the algorithm stops and by the array should be sorted.
+- At start sub array A[0..j] where j = 1, is an array with a single element, as
+  such it is trivially sorted
+- at each iteration, the right most element being sorted is swapped with the previous
+  element, if it does not reach the correct position it is swap again
+- when j reaches the value of length of A, the algorithm stops and by the array
+  should be sorted.
 
 Rust Implementation
 
@@ -39,38 +46,6 @@ pub fn insertion_sort<T: PartialOrd + Clone>(arr: &mut [T]){
     }
 }
 ```
-### Exercises
-
-```python
-def  linear_search(seq, key):
-	for  i in range(0, len(seq)):
-        if seq[i] == key:
-            return i
-    return None
-```
-
-#### 2
-
-Define N as natural number
-Set N as number if of bits defining INT data type
-Define set A as to be size N+1, contains N sized integers
-Define set B as to be size N+1, contains N sized integers
-Define set C as to be size N+1, contains N sized integers
-
-for index i in range 0 to N:
-  value of C[i] = A[i] + B[i]
-
-```rust
-let N: usize;
-//N = 10; //can be be any number
-// N defines the size of N
-let a: Vec<intN> = Vec::with_capacity(n+1);
-let b: Vec<intN> = Vec::with_capacity(n+1);
-let mut c: Vec<intN> = Vec::with_capacity(n+1);
-for i in 0..n{
-    c[i] = a[i] + b[i];
-}
-```
 
 ## Analyzing algorithms
 
@@ -86,7 +61,7 @@ for i in 0..n{
 
 - Time it takes for insertion sort to finish depends on the size of array, and the already sorted level of array.
 - Running time of algorithm is the sum of running times of all steps, procedures and operations with relation to size n.
-- 
+-
 
 `Input Size`: depends on problem being solved. Can mean size of set/array, the actual number being used in computation. Can mean total number of bits. Number of nodes and vertices in graph.
 
@@ -94,8 +69,8 @@ for i in 0..n{
 
 Example With Insertion Sort
 
--  the Best case: the array is already sorted, and the algorithm simply verifies this fact. Linear time
--  the best case: array is sorted in incorrect order. Every single item has to be checked with every other item: Quadratic time complexity
+- The Best case: the array is already sorted, and the algorithm simply verifies this fact. Linear time
+- the best case: array is sorted in incorrect order. Every single item has to be checked with every other item: Quadratic time complexity
 
 ### Worst-case and Average Case analysis
 
@@ -113,12 +88,9 @@ A is better than B
 
 ### Exercises: Analyzing Algorithms
 
+1 $n^3$
 
-#### 1
-
-n^3
-
-#### 2
+2
 
 Problem is sorting an array of numbers from smallest to largest.
 
@@ -137,8 +109,8 @@ Pseudo Code
     - return A
   - let I := FindSmallestIndexInArray(A)
   - swap values for A[I], A[0]
-  - let A_1 be array of one element A[0]
-  - let A_2 be array excluding first element of A, A[1:]
+  - let A_1 be an array of one element A[0]
+  - let A_2 be an array excluding first element of A, A[1:]
   - let B := RecursiveSelectionSort(A_2)
   - return union of A_1 and B
 
@@ -174,20 +146,23 @@ print(selection_sort(l))
 #### 3
 
 O(0.5N)
+$$
+O(0.5n)
+$$
 
 #### 4
 
-By analysing the runtime of the algorithm with a variaty of different test datas and benchmark and try to give a better case than worst case.
+By analyzing the runtime of the algorithm with a variety of different test data and benchmark and try to give a better case than worst case.
 
 ## Designing Algorithms
 
-- there are multiple school of tought when it comes to designning and implementing algorithms. One is `incremental` in which a problem is solved a little bit at a time
+- There are multiple school of thought when it comes to designing and implementing algorithms. One is `incremental` in which a problem is solved a little at a time
   - in insertion sort array A[1..j-1] is sorted, we then take element A[j] into the proper location. After which array A[1..j] becomes sorted
 - another method is `divide and conquer` in which a bigger problem in split into smaller problems to be solved individually
 
-### Divide and Conquer 
+### Divide and Conquer
 
-`Recursion`: procedure that calls itself.some algorithms are recursive in nature
+`Recursion`: procedure that calls itself. Some algorithms are recursive in nature
 
 - **Divide** problem into smaller sub problems
 - **Conquer** either solve a sufficiently small problem or further split into smaller problems
@@ -266,8 +241,7 @@ def merge_sort(A, p, r):
 
 - Each time the algorithm calls itself it divides the time complexity by a half. However, this is done twice each time. So the time complexity if merge sort is O(n), linear complexity
 - at a certain point the time complexity of merge sort becomes better than insertion sort.
-- Time complexity is nlogn
-
+- Time complexity is $n\log{n}$
 
 #### Exercises: Designing Algorithms
 
@@ -275,8 +249,20 @@ illustration of merge sort
 
 rewrite to not use sentinel values
 
-use induction in order to time complexity if nlogn
+Use induction to time complexity of $ n\log{n} $
 
 ```python
-def binary_search
+def binary_search(A, key):
+    if len(A) == 1 and A[0] == key:
+        return 0
+    else:
+        m = len(A) // 2
+    if A[m] == key:
+        return m
+    elif A[m] > key:
+        return binary_search(A[m:], key) + m
+    elif A[m] < key:
+        return binary_search(A[0:m], key)
+    else:
+        return -1
 ```
