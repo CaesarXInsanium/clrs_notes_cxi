@@ -1,18 +1,15 @@
 # Chapter 2: Getting Started
 
-This chapter is about the framework that will be pursued further down the road in
-the pursuit of getting the student familiar with inner workings of the way the book
-is structured.
-
-`Pseudo Code`: method of describing a set of instructions or algorithms that is
+Pseudo Code:
+Refers to method of describing a set of instructions or algorithms that is
 implementation agnostic. Can be interpreted and implemented in a variety of different
 manners. Algorithm described in the clearest way.
 
 ## Insertion Sort
 
-- Solution to sorting Problem is insertion sort in which given a set of numbers
-  we try to order them from smallest to greatest
-- To prove that algorithm is correct, we must show that
+One solution to sorting Problem is insertion sort in which given a set of numbers
+we try to order them from smallest to greatest. To prove that algorithm is correct,
+we must show that certain conditions are met.
 
 `Loop invariant`: section of the array that are already sorted.
 
@@ -49,11 +46,16 @@ pub fn insertion_sort<T: PartialOrd + Clone>(arr: &mut [T]){
 
 ## Analyzing algorithms
 
-- To analyze an algorithm means to be able to predict the runtime, memory and communication bandwidth costs of running said algorithm in accordance with the cost associated with data of size N
-- `Random-Access Machine`: implementation of technology in which instructions can only run sequentially.
-- Certain instructions or procedures can be completed in a single instruction however most require many others.
+- To analyze an algorithm means to be able to predict the runtime, memory and
+  communication bandwidth costs of running said algorithm in accordance with the 
+  cost associated with data of size N
+- `Random-Access Machine`: implementation of technology in which instructions can
+  only run sequentially.
+- Certain instructions or procedures can be completed in a single instruction however
+  most require many others.
   - For example sorting can only be done in multiple instructions, not just one
-  - add, subtract, multiply, divide, remainder, floor, ceiling are examples of constant time instructions
+  - add, subtract, multiply, divide, remainder, floor, ceiling are examples of
+    constant time instructions
   - shifting bits to left is equivalent to multiplying by 2^k where k is number of position of bits being shifted, it is most complicated than this however this simplification is what would be worked with
 - RAM model analysis is considered useful in predicting actual performance
 
@@ -116,7 +118,7 @@ Pseudo Code
 
 Procedure FindSmallestIndexInArray has time complexity of O(N)
 
-Procedure RecursiveSelectionSort worst time complexity as O(N^2). However best case would be O(N), because it will keep on calling itself recursively until it reaches a array size of 1
+Procedure RecursiveSelectionSort worst time complexity as O(N^2). However, best case would be O(N), because it will keep on calling itself recursively until it reaches a array size of 1
 
 - FindSmallestIndexInArray is called N times for array size N
 
@@ -146,6 +148,7 @@ print(selection_sort(l))
 #### 3
 
 O(0.5N)
+
 $$
 O(0.5n)
 $$
@@ -174,7 +177,7 @@ Define Procedure MergeSort
 Input Array A
 if A has one element, return A. it is already sorted
 split A into A_1 and A_2
-B_1 = MergeSort(A_1) 
+B_1 = MergeSort(A_1)
 B_2 = MergeSort(A_2)
 Merge B_1 and B_2
 
@@ -242,27 +245,3 @@ def merge_sort(A, p, r):
 - Each time the algorithm calls itself it divides the time complexity by a half. However, this is done twice each time. So the time complexity if merge sort is O(n), linear complexity
 - at a certain point the time complexity of merge sort becomes better than insertion sort.
 - Time complexity is $n\log{n}$
-
-#### Exercises: Designing Algorithms
-
-illustration of merge sort
-
-rewrite to not use sentinel values
-
-Use induction to time complexity of $ n\log{n} $
-
-```python
-def binary_search(A, key):
-    if len(A) == 1 and A[0] == key:
-        return 0
-    else:
-        m = len(A) // 2
-    if A[m] == key:
-        return m
-    elif A[m] > key:
-        return binary_search(A[m:], key) + m
-    elif A[m] < key:
-        return binary_search(A[0:m], key)
-    else:
-        return -1
-```

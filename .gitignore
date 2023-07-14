@@ -3,3 +3,6 @@ book
 .vscode
 code
 Algorithms.zip
+.lint
+clrs_notes.pdf
+test.pdf

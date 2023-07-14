@@ -1,6 +1,9 @@
-# Chapter 1: Algorithms
+# Chapter 1: Role of Algorithms in Computing
 
-`Algorithm`: set of instructions tailored to solve a problem
+## 1.1 Algorithms
+
+Algorithm
+: Sequence of computational instructions tailored to solve a problem
 
 - receive **input** and give **output**
   - example: take numbers in random order to sort them from least to greatest
@@ -8,28 +11,33 @@
   outputs the correct solution to problem
 - incorrect algorithms can be useful if their error rate is low enough
 
-`Instance of Problem`: consists of input that satisfies constraints imposed in problem
+Instance of Problem
+: Consists of input that satisfies constraints imposed in problem
   statement needed to compute solution to problem
 
-Examples of Problems to be solved
+Examples of problems that can be solved with algorithms
 
 - sorting human genomes
 - traveling salesman problem
 - cryptography and online secret keeping, secure transactions'
 - resource allocation
 
-`Data Structure`: method of storing data in a computer in a way the meets constraints
+Data Structure
+: Method of organizing data in a computer in a way the meets constraints and
+needs for a particular application.
 
-`Parallelism`: splitting work amongst more than one processor cores and threads
-  to speed up computation times
+Parallelism
+: Splitting work amongst more than one processor cores and threads
+to speed up computation times
 
 ## Algorithms as a Technology
 
 Time and space are two things that are limited. Time that a computer takes to
-  compute a thing and amount of memory and hard drive space in which to do it in
+compute a thing and amount of memory and hard drive space in which to do it in
 
-`Efficiency`: time and space required to compute solution compared against other
-  algorithms
+Efficiency:
+Refers to time and space required to compute solution compared against other
+algorithms.
 
 ## Algorithms and other Technologies
 
@@ -38,30 +46,4 @@ Time and space are two things that are limited. Time that a computer takes to
 - knowledge and understanding of algorithms is the thing that separates software
   engineers from script kiddies
 
-### Exercises: Algorithms as a Technology
-
-- Example of application that requires algorithm as fundamental of function
-  - computer graphics and ability to display same image regardless of hardware,
-    display, CPU architecture and graphics card. Layers upon layers of abstraction
-- at which point is insertion sort better than merge sort
-  - finds at which value n are both equations equal.
-  - $ 8 * n^2 = 64n\log{n} $
-  - $ n = 8\log{n} $
-  - $ n / \log{n} = 8 $
-- answer is simply 1
-  - same method as above
-
-### Problems
-
-#### Comparison of Running Times
-
-| Time Complexity| 1 second | 1 minute | 1 hour | 1 day | 1 month | 1 year | 1 century |
-|----------------|----------|----------|--------|-------|---------|--------|-----------|
-| $\log{n}$     | 0        | 1.77     |3.55    | 4.94  | 6.43 | 7.51  | 9.51 |
-| $\sqrt{n}$     | 1  | 7.7 | 60  | 294 | 1637 | 5669 | 56693|
-| $n$            | 1        | 60       | 3600   | 86400 | 2678400 | 32140800 | 3214080000 |
-| $n\log{n}$     | 1 | 60 | 3600 | 86400 | 2.68e7 | 3.21e7 | 3.21e9 |
-| $n^2$          | 0 | 107 | 12803 | 426515 | 1.72e7 | 2.41e8 | 3.1e10 |
-| $n^3$          | 1 | 3600 | 1.3e6 | 7.46e9 | 7.2e12 | 1e15 | 1e19 |
-| $2^n$          | 1 | 21600 | 4.7e10 | 6.4e14 | 1.9e19 | 3.3e22 | 3.3e28 |
-| $n!$           | 2 | ?? | ?? ?? |?? |?? |?? | ?? |
+\pagebreak
