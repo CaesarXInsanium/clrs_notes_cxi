@@ -30,14 +30,13 @@ Parallelism
 : Splitting work amongst more than one processor cores and threads
 to speed up computation times
 
-## Algorithms as a Technology
+## 1.2 Algorithms as a Technology
 
-Time and space are two things that are limited. Time that a computer takes to
+Time and space are two things that are finite. Time that a computer takes to
 compute a thing and amount of memory and hard drive space in which to do it in
 
 Efficiency:
-Refers to time and space required to compute solution compared against other
-algorithms.
+Refers to time and space required to compute solution relative to size of problem.
 
 ## Algorithms and other Technologies
 

@@ -1,27 +1,27 @@
 # Chapter 2: Getting Started
 
 Pseudo Code:
-Refers to method of describing a set of instructions or algorithms that is
+Refers to a method of describing a set of instructions or algorithms that is
 implementation agnostic. Can be interpreted and implemented in a variety of different
-manners. Algorithm described in the clearest way.
+manners. The algorithm described in the clearest way.
 
-## Insertion Sort
+## 2.1 Insertion Sort
 
-One solution to sorting Problem is insertion sort in which given a set of numbers
-we try to order them from smallest to greatest. To prove that algorithm is correct,
+Loop invariant:
+Section of the array that are already sorted.
+
+One solution to sorting problem is insertion sort. To prove that algorithm is correct,
 we must show that certain conditions are met.
-
-`Loop invariant`: section of the array that are already sorted.
 
 - `Initialization`: certain properties of array are true before algorithm starts
 - `Maintenace`: if certain things are true before iteration of loop, will remain
   true for next iteration
 - `Termination`: certain properties arise from evaluation of loop
 
-Things that are proven with insertion algorithm
+Each of these facts can be proven throughout the running of the algorithm
 
-- At start sub array A[0..j] where j = 1, is an array with a single element, as
-  such it is trivially sorted
+- At start, we have sub array where j = 1, it is an array with a single element, as
+  such it is trivially sorted. It can be trivially proved to be sorted
 - at each iteration, the right most element being sorted is swapped with the previous
   element, if it does not reach the correct position it is swap again
 - when j reaches the value of length of A, the algorithm stops and by the array
@@ -44,10 +44,24 @@ pub fn insertion_sort<T: PartialOrd + Clone>(arr: &mut [T]){
 }
 ```
 
-## Analyzing algorithms
+Nim implementation
+
+```nim
+proc insertion_sort*[T](a: var openArray[T]) =
+  ## openArray denotes any array type in Nim that has lenght and can be indexed
+  for j in 1..(a.len() - 1):
+    var key = a[j]
+    var i = j - 1
+    while i >= 0 and a[i] > key:
+      a[i + 1] = a[i]
+      i = i - 1
+    a[i + 1] = key
+```
+
+## 2.2 Analyzing algorithms
 
 - To analyze an algorithm means to be able to predict the runtime, memory and
-  communication bandwidth costs of running said algorithm in accordance with the 
+  communication bandwidth costs of running said algorithm in accordance with the
   cost associated with data of size N
 - `Random-Access Machine`: implementation of technology in which instructions can
   only run sequentially.
@@ -242,6 +256,5 @@ def merge_sort(A, p, r):
 
 #### Merge Sort Analysis
 
-- Each time the algorithm calls itself it divides the time complexity by a half. However, this is done twice each time. So the time complexity if merge sort is O(n), linear complexity
-- at a certain point the time complexity of merge sort becomes better than insertion sort.
+- It has a certain point the time complexity of merge sort becomes better than insertion sort.
 - Time complexity is $n\log{n}$
