@@ -104,38 +104,6 @@ A is better than B
 
 ### Exercises: Analyzing Algorithms
 
-1 $n^3$
-
-2
-
-Problem is sorting an array of numbers from smallest to largest.
-
-Pseudo Code
-
-- Define Procedure FindSmallestIndexInArray
-  - input Array A, sequence of arbitrary numbers
-  - let I be natural number := 0
-  - for each index and value in Array:
-    - if value is less than A[I]
-      - I := index
-  - return I
-- Define Procedure: RecursiveSelectionSort
-  - input: array A
-  - if A has one element
-    - return A
-  - let I := FindSmallestIndexInArray(A)
-  - swap values for A[I], A[0]
-  - let A_1 be an array of one element A[0]
-  - let A_2 be an array excluding first element of A, A[1:]
-  - let B := RecursiveSelectionSort(A_2)
-  - return union of A_1 and B
-
-Procedure FindSmallestIndexInArray has time complexity of O(N)
-
-Procedure RecursiveSelectionSort worst time complexity as O(N^2). However, best case would be O(N), because it will keep on calling itself recursively until it reaches a array size of 1
-
-- FindSmallestIndexInArray is called N times for array size N
-
 ```python
 def find_smallest(A:list):
     smallest_idx = 0
@@ -153,23 +121,7 @@ def selection_sort(A):
     result.extend(selection_sort(A[1:]))
     return result
 
-import random
-l = [random.randint(0,100) for i in range(100)]
-print(l)
-print(selection_sort(l))
 ```
-
-#### 3
-
-O(0.5N)
-
-$$
-O(0.5n)
-$$
-
-#### 4
-
-By analyzing the runtime of the algorithm with a variety of different test data and benchmark and try to give a better case than worst case.
 
 ## Designing Algorithms
 
